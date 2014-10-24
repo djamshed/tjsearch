@@ -1,0 +1,65 @@
+<head>
+  <title>TJ Search</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+
+<body>
+  <div class="content centered">
+    <div>
+      <div style="margin-bottom: 10px;">Напиши слово на таджикском, мы спросим его у <a href="//lugat.tj">lugat.tj</a> и дадим ссылку на поиск английского слова в Google и на поиск русского эквивалента в Яндекс.
+      </div>
+      {{> searchbox}}
+    </div>
+    <div class="results">
+      {{> searchEngines}}
+    </div>
+  </div>
+</body>
+
+<template name="searchbox">
+  <div>
+    <div class="notes">Ҷустучӯ бо забони тоҷикй</div>
+    <input type="text" id="tj_txt" name="name" placeholder="Ҷустучӯ бо забони тоҷикй" value="офтоб"/>
+    <div class="search-btn js-search-btn">Ҷустучӯ</div>
+  </div>
+    <div class="examples">масъалан: <span class="example">харбуза</span>, <span class="example">парчам</span>, <span class="example">офтоб</span></div>
+</template>
+
+<template name="searchEngines">
+  {{#if en}}
+  <h2>{{tj}} &#8594; {{en}}</h2>
+  <div style="margin-bottom: 40px;">
+    <a href="//www.google.com/search?tbm=isch&q={{en}}" target="_blank">
+      <div><img src="img/g_images.png"/></div>
+      <div>тасвирхои <span class="emphasize">{{tj}} ({{en}})</span> дар Google</div>
+    </a>
+
+    <a href="//www.google.com/?#q={{en}}" style="display: inline-block; margin-right: 10px;" target="_blank">
+      <div><img src="img/g_results.png"/></div>
+      <div>ҷустучӯ <span class="emphasize">{{tj}} ({{en}})</span> дар Google</div>
+    </a>
+  </div>
+  {{/if}}
+
+  {{#if ru}}
+  <h2>{{tj}} &#8594; {{ru}}</h2>
+  <div>
+    <a href="//yandex.ru/images/search?&text={{ru}}" style="display: inline-block; margin-right: 10px;" target="_blank">
+      <div><img src="img/y_images.png"/></div>
+      <div>тасвирхои <span class="emphasize">{{tj}} ({{ru}})</span> дар Yandex</div>
+    </a>
+
+    <a href="//yandex.ru/yandsearch?&text={{ru}}" style="display: inline-block; margin-right: 10px;" target="_blank">
+      <div><img src="img/y_results.png"/></div>
+      <div>ҷустучӯ <span class="emphasize">{{tj}} ({{ru}})</span> дар Yandex</div>
+    </a>
+  </div>
+  {{/if}}
+  {{#if err}}
+  <div>калима наёфта шуд</div>
+  {{/if}}
+
+  {{#if loading}}
+  <div>loading...</div>
+  {{/if}}
+</template>
