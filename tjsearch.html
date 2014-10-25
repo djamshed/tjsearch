@@ -1,17 +1,18 @@
 <head>
   <title>TJ Search</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
   <div class="content centered">
     <div>
-      <div style="margin-bottom: 10px;">Напиши слово на таджикском, мы спросим его у <a href="//lugat.tj">lugat.tj</a> и дадим ссылку на поиск английского слова в Google и на поиск русского эквивалента в Яндекс.
+      <div style="margin-bottom: 10px;">
+        Напиши слово на таджикском, мы спросим его у <a href="//lugat.tj">lugat.tj</a> и дадим ссылку на поиск английского слова в Google и на поиск русского эквивалента в Яндекс. <span style="color: #ddd;">Программистам: исходники на <a style="color: #ddd;" href="//github.com/djamshed/tjsearch">github</a></span>
       </div>
       {{> searchbox}}
-    </div>
-    <div class="results">
-      {{> searchEngines}}
+      <div class="results">
+        {{> searchEngines}}
+      </div>
     </div>
   </div>
 </body>
@@ -56,7 +57,7 @@
   </div>
   {{/if}}
   {{#if err}}
-  <div>калима наёфта шуд</div>
+  <div>калима наёфта шудаст</div>
   {{/if}}
 
   {{#if loading}}
