@@ -139,7 +139,6 @@ if (Meteor.isServer) {
   }
 
   Meteor.startup(function() {
-    Words.remove({});
 
     Meteor.methods({
       translate: function(tjWord) {
